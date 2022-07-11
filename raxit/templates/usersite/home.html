@@ -1,0 +1,62 @@
+{% load static %}
+<html>
+    <head>
+        <title>
+            User site
+        </title>
+        <link rel="stylesheet" href="{% static 'css/homee.css' %}">
+    </head>
+    <body>
+        <h2 align="center">
+            {% if msg %}
+              {{msg}}
+            {% endif %}
+        </h2>
+        <form  method="post">
+            {% csrf_token %}
+        <div class="main">
+            <div class="firstcell">
+                <div class="home">
+                    Home
+                </div>
+                {% if user.is_authenticated %}
+                <div class="welcome">Welcome : {{request.user.user_fullname}}</div>
+                <div class="logout"><a href="{% url 'logoutpage' %}">Logout</a></div>
+                {% else %}
+                <div class="logout2">User <a href="{% url 'loginuserpage' %}">Sigin</a> | <a href="{% url 'signupuserpage' %}">Sigup</a></div>
+                <div class="logout3">Admin <a href="{% url 'loginadminpage' %}">Login</a></div>
+                {% endif %}
+            </div>
+            <div class="seccell">
+                <div class="add-video"><a href="{% url 'edituser' user.id %}">{% if user.is_authenticated %}Update Profile{% endif %}</a></div>
+            </div>
+            <div class="thirdcell">
+                <div class="video-id">Video_id</div>
+                <div class="video-name">Video_name</div>
+                <div class="channel">Channel<br>Name on<br>Youtube</div>
+                <div class="video-link">Video_link</div>
+                <div class="country">Country</div>
+                <div class="city">City</div>
+                <div class="actio">Action</div>
+            </div>
+            <div class="forthcell">
+                {% for x in sel %}
+                <div class="video-id">{{ x.id }}</div>
+                <div class="video-name">{{ x.Video_name }}</div>
+                <div class="channel">{{ x.channel }}</div>
+                <div class="video-link">{{ x.Video_link }}</div>
+                <div class="country">{{ x.Country }}</div>
+                <div class="city">{{ x.City }}</div>
+                <div class="actio">
+                    {% if user.is_authenticated %}
+                    <a id="ac" href="{% url 'addcomentspage' x.id %}">Add comment</a>
+                    {% else %}
+                    <a id="ac" href="{% url 'loginuserpage' %}">Login for Add comment</a>
+                    {% endif %}
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </form>
+    </body>
+</html>

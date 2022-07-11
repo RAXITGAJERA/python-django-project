@@ -1,0 +1,42 @@
+{% load static %}
+<html lang="en">
+<head>
+    <title>Admin Login</title>
+    <link rel="stylesheet" href="{% static 'css/adminlogin.css' %}">
+</head>
+<body class="body">
+    <h2 align="center">
+        {% if msg %}
+          {{msg}}
+        {% endif %}
+    </h2>
+    <form method="post">
+        {% csrf_token %}
+        <div class="div">
+            <div class="aa">
+                <p> ADMIN LOGIN</p>
+            </div>
+            <div class="aa"> 
+                <table class="table-user"  cellspacing="0">
+                    <tr>
+                        <th>User Email</th>
+                        <td><input type="text" id="loginemail" name="loginemail" placeholder="Enter your Email" required></td>
+                    </tr>
+                    <tr>
+                        <th>Password</th>
+                        <td><input type="password" id="loginpassword" name="loginpassword" placeholder="Enter your password" required ></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <input type="submit" value="Login" name="login" id="login">
+                            <a href="{% url 'homepage' %}" class="cancel">Cancel</a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        
+    
+        </div>
+    </form>
+</body>
+</html>

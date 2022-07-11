@@ -1,0 +1,56 @@
+{% load static %}
+<html>
+    <head>
+        <title>
+            Edit Video
+        </title>
+        <link rel="stylesheet" href="{% static 'css/editvideo.css' %}">
+    </head>
+    <body>
+        <h2 align="center">
+            {% if msg %}
+              {{msg}}
+            {% endif %}
+        </h2>
+        <form action={% url 'updatevideopage' %} method="post">
+            {% csrf_token %}
+            <div class="main">
+                <div class="firstcell">
+                    <div class="home">
+                        Home
+                    </div>
+                    {% if user.is_authenticated %}
+                    <div class="welcome">welcome : {{request.user.user_fullname}}</div>
+                    {% else %}
+                    <div class="welcome"><a href="{% url 'loginuserpage'%}">Login</div>
+                    {% endif %}
+                    <div class="logout"><a href="{% url 'logoutpage'%}">Logout</a></div>
+                </div>
+                <div class="seccell">
+                    <div class="video-detail">Edit Video</div>
+                </div>
+                <div class="thirdcell">
+                    <div class="video-id">Video_id</div>
+                    <div class="video-name">Video_name</div>
+                    <div class="channel">Channel<br>Name on<br>Youtube</div>
+                    <div class="video-link">Video_link</div>
+                    <div class="country">Country</div>
+                    <div class="city">City</div>
+                    <div class="actio">Action</div>
+                </div>
+                <div class="forthcell">
+                    <div class="video-id"><input type="text" value="{{ sel.id }}" id="Video_id" name="Video_id" placeholder="Video Id" required></div>
+                    <div class="video-name"><input type="text" value="{{ sel.Video_name }}" id="Video_name" name="Video_name" placeholder="Video Name" required></div>
+                    <div class="channel"><input type="text" value="{{ sel.channel }}" id="channel" name="channel" placeholder="Channel Name" required></div>
+                    <div class="video-link"><input type="text" value="{{ sel.Video_link }}" id="Video_link" name="Video_link" placeholder="Video Link" required></div>
+                    <div class="country"><input type="text" value="{{ sel.Country }}" id="Country" name="Country" placeholder="Country" required></div>
+                    <div class="city"><input type="text" value="{{ sel.City }}" id="City" name="City" placeholder="City" required></div>
+                    <div class="actio">
+                        <button class="submit" type="submit">Update</button> |
+                        <a class="reset" href="{% url 'homeadminpage' %}">cancel</a>
+                    </div>
+                </div>
+            </div>
+    </form>
+    </body>
+</html>

@@ -1,0 +1,75 @@
+{% load static %}
+<html lang="en">
+<head>
+    <title>loginpage</title>
+    <link rel="stylesheet" href="{% static 'css/signupp.css' %}">
+</head>
+<body class="body">
+    <h2 align="center">
+        {% if msg %}
+          {{msg}}
+        {% endif %}
+    </h2>
+    <form method="post">
+        {% csrf_token %}
+        <div class="div">
+            <div class="aa">
+                <p> USER REGISTER</p>
+            </div>
+            <div class="aa"> 
+                <table class="table-user"  cellspacing="0">
+                    <tr>
+                        <th>Email</th>
+                        <td><input type="text" id="email" name="email" placeholder="Enter your email" required ></td>
+                    </tr>
+                    <tr>
+                        <th>Password</th>
+                        <td><input type="password" id="password" name="password" placeholder="Enter your Password" required></td>
+                    </tr>
+                    <tr>
+                        <th>Full Name</th>
+                        <td><input type="text" id="user_fullname" name="user_fullname" placeholder="Enter your Fullname" required ></td>
+                    </tr>
+                    <tr>
+                        <th>Address</th>
+                        <td><textarea id="user_address" name="user_address" placeholder="Enter your Address" required></textarea></td>
+                    </tr>
+                    <tr>
+                        <th>Gender</th>
+                        <td>
+                            <input type="radio" value="male" id="user_gender" name="user_gender">Male
+                            <input type="radio" value="fmale" id="user_gender" name="user_gender">Female
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Country</th>
+                        <td>
+                            <select id="user_country" name="user_country" required>
+                                <option selected disabled="true">--select--</option>
+                                <option value="INDIA">INDIA</option>
+                                <option value="U.K.">U.K.</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>City</th>
+                        <td>
+                            <select id="user_city" name="user_city" required>
+                                <option selected disabled="true">--select--</option>
+                                <option value="Rajkot">Rajkot</option>
+                                <option value="Junagadh">Junagadh</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <input type="submit" value="Registration" name="login" id="login">
+                        </td>
+                    </tr>
+                </table>
+                <a href="{% url 'loginuserpage' %}" class="regis"> Already User ? SignIn </a>
+            </div>
+        </div>
+    </form>
+</body>
+</html>

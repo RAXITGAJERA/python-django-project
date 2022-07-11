@@ -1,0 +1,64 @@
+{% load static %}
+<html>
+    <head>
+        <title>
+            HOME-USER-ADMIN
+        </title>
+        <link rel="stylesheet" href="{% static 'css/homeuseradminn.css' %}">
+    </head>
+    <body>
+        <h2 align="center">
+            {% if msg %}
+              {{msg}}
+            {% endif %}
+        </h2>
+        <form  method="post">
+            {% csrf_token %}
+        <div class="main">
+            <div class="firstcell">
+                <div class="home">Home</div>
+                {% if user.is_authenticated %}
+                <div class="welcome">welcome : {{request.user.user_fullname}}</div>
+                {% else %}
+                <div class="welcome"><a href="{% url 'loginuserpage'%}">Login</div>
+                {% endif %}
+                <div class="logout"><a href="{% url 'logoutpage'%}">Logout</a></div>
+            </div>
+            <div class="seccell">
+                <div class="video-detail"><a href="{% url 'homeadminpage' %}">Video Details</a></div>
+                <div class="add-video"><a href="{% url 'adduserbyadmin' %}">Add User</a></div>
+            </div>
+            <div class="thirdcell">
+                <div class="username">Email</div>
+                <div class="password">Is Staff</div>
+                <div class="fullname">Fullname</div>
+                <div class="address">Address</div>
+                <div class="gender">Gender</div>
+                <div class="country">Country</div>
+                <div class="city">City</div>
+                <div class="action">Action</div>
+                <div class="status">Status</div>
+            </div>
+            <div class="forthcell">
+                {% for x in sel %}
+                <input type="hidden" name="user_id" value="{{ x.id }}">
+                <div class="username1">{{ x.email }}</div>
+                <div class="password1">{{ x.is_staff }}</div>
+                <div class="fullname1">{{ x.user_fullname }}</div>
+                <div class="address1">{{ x.user_address }}</div>
+                <div class="gender1">{{ x.user_gender }}</div>
+                <div class="country1">{{ x.user_country }}</div>
+                <div class="city1">{{ x.user_city }}</div>
+                <div class="action1">
+                    <a id="ae" href="{% url 'edituseradmin' x.id %}">Edit</a>
+                    | <a id="ad" href="{% url 'deleteuseradmin' x.id %}">Delete</a>
+                </div>
+                <div class="status1">
+                    {{ x.block_unblock }}
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </form>
+    </body>
+</html>

@@ -1,0 +1,64 @@
+{% load static %}
+<html>
+    <head>
+        <title>
+            EDIT-USER-ADMIN
+        </title>
+        <link rel="stylesheet" href="{% static 'css/edituseradmi.css' %}">
+    </head>
+    <body>
+        <h2 align="center">
+            {% if msg %}
+              {{msg}}
+            {% endif %}
+        </h2>
+        <form action="{% url 'updateuseradmin' %}" method="post">
+            {% csrf_token %}
+        <div class="main">
+            <div class="firstcell">
+                <div class="home">Home</div>
+                {% if user.is_authenticated %}
+                <div class="welcome">welcome : {{request.user.user_fullname}}</div>
+                {% else %}
+                <div class="welcome"><a href="{% url 'loginuserpage'%}">Login</div>
+                {% endif %}
+                <div class="logout"><a href="{% url 'logoutpage'%}">Logout</a></div>
+            </div>
+            <div class="seccell">
+                <div class="video-detail">Edit User Details</div>
+            </div>
+            <div class="thirdcell">
+                <div class="username">Email</div>
+                <div class="password">Is Staff</div>
+                <div class="fullname">Fullname</div>
+                <div class="address">Address</div>
+                <div class="gender">Gender</div>
+                <div class="country">Country</div>
+                <div class="city">City</div>
+                <div class="action">Action</div>
+            </div>
+            <div class="forthcell">
+                <input type="hidden" name="userid" value="{{ sel.id }}">
+                <div class="username1"><input type="text" value="{{ sel.email }}" id="email" name="email" placeholder="Update Username" required></div>
+                <div class="password1"><input type="text" value="{{ sel.is_staff }}" id="is_staff" name="is_staff" placeholder="Update Password" required></div>
+                <div class="fullname1"><input type="text" value="{{ sel.user_fullname }}" id="user_fullname" name="user_fullname" placeholder="Update Fullname" required></div>
+                <div class="address1"><input type="text" value="{{ sel.user_address }}" id="user_address" name="user_address" placeholder="Update Address" required></div>
+                <div class="gender1"><input type="text" value="{{ sel.user_gender }}" id="user_gender" name="user_gender" placeholder="Update Gender" required></div>
+                <div class="country1"><input type="text" value="{{ sel.user_country }}" id="user_country" name="user_country" placeholder="Update Country" required></div>
+                <div class="city1"><input type="text" value="{{ sel.user_city }}" id="user_city" name="user_city" placeholder="Update City" required></div>
+                <div class="action1">
+                    <button class="submit" type="submit">Update</button>
+                    | <a id="ad" href="{% url 'homeuseradminpage' %}">Cancel</a>
+                    <br><br>
+                    <select id="block_unblock" name="block_unblock" required>
+                        <option selected disabled="true">Block-Unblock</option>
+                        <option value="block">Block</option>
+                        <option value="unblock">Unblock</option>
+                    </select>
+                    - <button class="submit" type="submit">ok</button>
+                </div>
+            </div>
+        </div>
+    </form>
+    </body>
+</html>

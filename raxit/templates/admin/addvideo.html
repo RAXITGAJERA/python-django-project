@@ -1,0 +1,54 @@
+{% load static %}
+<html>
+    <head>
+        <title>
+            HOME-ADMIN
+        </title>
+        <link rel="stylesheet" href="{% static 'css/addvideos.css' %}">
+    </head>
+    <body>
+        <h2 align="center">
+            {% if msg %}
+              {{msg}}
+            {% endif %}
+        </h2>
+        <form  method="post">
+            {% csrf_token %}
+            <div class="main">
+                <div class="firstcell">
+                    <div class="home">
+                        Home
+                    </div>
+                    {% if user.is_authenticated %}
+                    <div class="welcome">welcome : {{request.user.user_fullname}}</div>
+                    {% else %}
+                    <div class="welcome"><a href="{% url 'loginuserpage'%}">Login</div>
+                    {% endif %}
+                    <div class="logout"><a href="{% url 'logoutpage'%}">Logout</a></div>
+                </div>
+                <div class="seccell">
+                    <div class="video-detail">Add New Video</div>
+                </div>
+                <div class="thirdcell">
+                    <div class="video-name">Video_name</div>
+                    <div class="channel">Channel<br>Name on<br>Youtube</div>
+                    <div class="video-link">Video_link</div>
+                    <div class="country">Country</div>
+                    <div class="city">City</div>
+                    <div class="actio">Action</div>
+                </div>
+                <div class="forthcell">
+                    <div class="video-name"><input type="text" id="Video_name" name="Video_name" placeholder="Video Name" required></div>
+                    <div class="channel"><input type="text" id="channel" name="channel" placeholder="Channel Name" required></div>
+                    <div class="video-link"><input type="text" id="Video_link" name="Video_link" placeholder="Video Link" required></div>
+                    <div class="country"><input type="text" id="Country" name="Country" placeholder="Country" required></div>
+                    <div class="city"><input type="text" id="City" name="City" placeholder="City" required></div>
+                    <div class="actio">
+                        <button class="submit" type="submit">Add</button> |
+                        <a class="reset" href="{% url 'homeadminpage' %}">cancel</a>
+                    </div>
+                </div>
+            </div>
+    </form>
+    </body>
+</html>

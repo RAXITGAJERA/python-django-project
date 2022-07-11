@@ -1,0 +1,244 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    font-family: 'poppins', sans-serif;
+    box-sizing: border-box;
+}
+body
+{
+    background-color: rgba(30, 143, 255, 0.974);
+    color: #626262;
+}
+body a
+{
+    color: #626262;
+    text-decoration: none;
+}
+body a:hover
+{
+    color: #d41515;
+    text-decoration: underline;
+}
+.main
+{
+    background-color: #fff;
+    width: 90%;
+    height: 100%;
+    margin: 5% 5%;
+}
+.firstcell
+{
+    width: 100%;
+    height: 6%;
+}
+.home
+{
+    float: left;
+    width: 70%;
+    height: 100%;
+    text-align: center;
+    padding: 5px 0px;
+    border: 1px solid;
+}
+.welcome
+{
+    float: left;
+    width: 20%;
+    height: 100%;
+    text-align: center;
+    padding: 5px 0px;
+    border: 1px solid;
+}
+.logout
+{
+    float: left;
+    width: 10%;
+    height: 100%;
+    text-align: center;
+    padding: 5px 0px;
+    border: 1px solid;
+}
+.seccell
+{
+    width: 100%;
+    height: 6%;
+}
+.video-detail
+{
+    width: 100%;
+    height: 100%;
+    float: left;
+    padding: 5px 0px;
+    border: 1px solid;
+}
+.thirdcell
+{
+    width: 100%;
+    height: 10%;
+}
+.video-id
+{
+    height: 100%;
+    float: left;
+    width: 10%;
+    padding: 5px 0px;
+    text-align: center;
+    border: 1px solid;
+}
+.video-name
+{
+    height: 100%;
+    float: left;
+    width: 10%;
+    padding: 5px 0px;
+    text-align: center;
+    border: 1px solid;
+}
+.channel
+{
+    height: 100%;
+    float: left;
+    width: 10%;
+    padding: 5px 0px;
+    text-align: center;
+    border: 1px solid;
+}
+.video-link
+{
+    height: 100%;
+    float: left;
+    width: 40%;
+    padding: 5px 0px;
+    text-align: center;
+    border: 1px solid;
+}
+.country
+{
+    height: 100%;
+    float: left;
+    width: 10%;
+    padding: 5px 0px;
+    text-align: center;
+    border: 1px solid;
+}
+.city
+{
+    height: 100%;
+    float: left;
+    width: 10%;
+    padding: 5px 0px;
+    text-align: center;
+    border: 1px solid;
+}
+.actio
+{
+    height: 100%;
+    float: left;
+    width: 10%;
+    padding: 5px 0px;
+    text-align: center;
+    border: 1px solid;
+}
+.forthcell
+{
+    width: 100%;
+    height: 10%;
+}
+.fifthcell
+{
+    width: 100%;
+    height: 10%;
+    margin-top: 20px;
+}
+.textcomments
+{
+    height: 100%;
+    width: 60%;
+    margin-left: 10%;
+    float: left;
+    border: 1px solid;
+}
+.textcomments textarea
+{
+    height: 100%;
+    width: 100%;
+    resize: none;
+    text-transform: capitalize;
+    border: 0px solid;
+}
+.submit-comm
+{
+    height: 100%;
+    width: 10%;
+    float: left;
+    border: 1px solid;
+}
+.submit-comm input
+{
+    width: 100%;
+    height: 100%;
+    font-size: larger;
+    background-color: #fff;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #626262;
+    border: 0px solid;
+}
+.cencel-comm
+{
+    height: 100%;
+    width: 10%;
+    background-color: #fff;
+    float: left;
+    margin-right: 10%;
+    border: 1px solid;
+}
+.cencel-comm a
+{
+    font-size: larger;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #626262;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    padding-top: 20px;
+    float: left;
+}
+
+
+
+.sixcell
+{
+    width: 100%;
+    height:30%;
+    margin-top: 30px;
+}
+.firstrow-com
+{
+    float: left;
+    width: 100%;
+    height: 20%;
+    text-align: center;
+    font-size: large;
+    font-weight: bold;
+    padding-top: 10px;
+    color: #fff;
+    background-color: rgba(30, 143, 255, 0.974);
+
+}
+.secrow-com
+{
+    float: left;
+    width: 100%;
+    height: 20%;
+    border: 1px solid;
+}
+.coments-here
+{
+    height: 100%;
+    float: left;
+    width: 100%;
+    background-color: #fff;
+}

@@ -1,0 +1,59 @@
+{% load static %}
+<html>
+    <head>
+        <title>
+            HOME-ADMIN
+        </title>
+        <link rel="stylesheet" href="{% static 'css/homeadmin.css' %}">
+    </head>
+    <body>
+        <h2 align="center">
+            {% if msg %}
+              {{msg}}
+            {% endif %}
+        </h2>
+        <form  method="post">
+            {% csrf_token %}
+        <div class="main">
+            <div class="firstcell">
+                <div class="home">
+                    Home
+                </div>
+                {% if user.is_authenticated %}
+                <div class="welcome">Welcome : {{request.user.user_fullname}}</div>
+                {% else %}
+                <div class="welcome"><a href="{% url 'loginuserpage'%}">Login</div>
+                {% endif %}
+                <div class="logout"><a href="{% url 'logoutpage' %}">Logout</a></div>
+            </div>
+            <div class="seccell">
+                <div class="video-detail"><a href="{% url 'homeuseradminpage' %}">User Details</a></div>
+                <div class="add-video"><a href="{% url 'addvideopage' %}">Add Video</a></div>
+            </div>
+            <div class="thirdcell">
+                <div class="video-id">Video_id</div>
+                <div class="video-name">Video_name</div>
+                <div class="channel">Channel<br>Name on<br>Youtube</div>
+                <div class="video-link">Video_link</div>
+                <div class="country">Country</div>
+                <div class="city">City</div>
+                <div class="actio">Action</div>
+            </div>
+            <div class="forthcell">
+                {% for x in sel %}
+                <div class="video-id">{{ x.id }}</div>
+                <div class="video-name">{{ x.Video_name }}</div>
+                <div class="channel">{{ x.channel }}</div>
+                <div class="video-link">{{ x.Video_link }}</div>
+                <div class="country">{{ x.Country }}</div>
+                <div class="city">{{ x.City }}</div>
+                <div class="actio">
+                    <a id="ae" href="{% url 'editvideopage' x.id %}">Edit</a> | <a id="ad" href="{% url 'deletevideopage' x.id %}">Delete</a>
+                    |<a id="ac" href="{% url 'showcomments' x.id %}">Show comment</a>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </form>
+    </body>
+</html>

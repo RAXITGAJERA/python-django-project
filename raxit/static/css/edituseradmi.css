@@ -1,0 +1,146 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    font-family: 'poppins', sans-serif;
+    box-sizing: border-box;
+}
+body
+{
+    background-color: rgba(30, 143, 255, 0.974);
+    color: #626262;
+}
+body a
+{
+    color: #626262;
+    text-decoration: none;
+}
+body a:hover
+{
+    color: #d41515;
+    text-decoration: underline;
+}
+.main
+{
+    background-color: #fff;
+    width: 90%;
+    height: 100%;
+    margin: 5% 5%;
+}
+.firstcell
+{
+    width: 100%;
+    height: 6%;
+}
+.home
+{
+    float: left;
+    width: 55%;
+    height: 100%;
+    text-align: center;
+    padding: 5px 0px;
+    border: 1px solid;
+}
+.welcome
+{
+    float: left;
+    width: 33%;
+    height: 100%;
+    text-align: center;
+    padding: 5px 0px;
+    border: 1px solid;
+}
+.logout
+{
+    float: left;
+    width: 12%;
+    height: 100%;
+    text-align: center;
+    padding: 5px 0px;
+    border: 1px solid;
+}
+.seccell
+{
+    width: 100%;
+    height: 6%;
+}
+.video-detail
+{
+    width: 100%;
+    height: 100%;
+    float: left;
+    padding: 5px 0px;
+    border: 1px solid;
+}
+
+.thirdcell
+{
+    width: 100%;
+    height: 6%;
+}
+.username, .password, .fullname, .address, .gender, .country, .city
+{
+    height: 100%;
+    width: 11%;
+    float: left;
+    border: 1px solid;
+    text-align: center;
+    padding: 8px 0px;
+}
+.action
+{
+    height: 100%;
+    width: 23%;
+    float: left;
+    border: 1px solid;
+    text-align: center;
+    padding: 8px 0px;
+}
+.forthcell
+{
+    width: 100%;
+    height: 12%;
+}
+.forthcell input
+{
+    width: 100%;
+    height: 100%;
+    border: 0px;
+
+}
+.forthcell button
+{
+    text-decoration: none;
+    border: 0;
+    font-size: large;
+    margin-right: 5px;
+    background-color: #fff;
+    color: #626262;
+}
+.forthcell button:hover
+{
+    color: #d41515;
+    text-decoration: underline;
+}
+.username1, .password1, .fullname1, .address1, .gender1, .country1, .city1
+{
+    height: 100%;
+    width: 11%;
+    float: left;
+    border: 1px solid;
+    text-align: center;
+    padding: 8px 0px;
+}
+.action1
+{
+    height: 100%;
+    width: 23%;
+    float: left;
+    border: 1px solid;
+    text-align: center;
+    padding: 8px 0px;
+}
+.action1 select
+{
+    border: 0px;
+}

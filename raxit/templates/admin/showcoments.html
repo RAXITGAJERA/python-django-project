@@ -1,0 +1,62 @@
+{% load static %}
+<html>
+    <head>
+        <title>
+            HOME
+        </title>
+        <link rel="stylesheet" href="{% static 'css/showcoments.css' %}">
+    </head>
+    <body>
+        <h2 align="center">
+            {% if msg %}
+              {{msg}}
+            {% endif %}
+        </h2>
+        <div class="main">
+            <div class="firstcell">
+                <div class="home">
+                    Home
+                </div>
+                {% if user.is_authenticated %}
+                <div class="welcome">welcome : {{request.user.user_fullname}}</div>
+                {% else %}
+                <div class="welcome"><a href="{% url 'loginuserpage'%}">Login</div>
+                {% endif %}
+                <div class="logout"><a href="{% url 'logoutpage'%}">Logout</a></div>
+            </div>
+            <div class="seccell">
+                <div class="video-detail"></div>
+            </div>
+            <div class="thirdcell">
+                <div class="video-id">Video_id</div>
+                <div class="video-name">Video_name</div>
+                <div class="channel">Channel<br>Name on<br>Youtube</div>
+                <div class="video-link">Video_link</div>
+                <div class="country">Country</div>
+                <div class="city">City</div>
+                <div class="actio">Action</div>
+            </div>
+            <div class="forthcell">
+                <div class="video-id">{{ sel.Video_id }}</div>
+                <div class="video-name">{{ sel.Video_name }}</div>
+                <div class="channel">{{ sel.channel }}</div>
+                <div class="video-link">{{ sel.Video_link }}</div>
+                <div class="country">{{ sel.Country }}</div>
+                <div class="city">{{ sel.City }}</div>
+                <div class="actio">
+                    <a class="reset" href="{% url 'homeadminpage' %}">cancel</a>
+                </div>
+            </div>
+            <div class="sixcell">
+                <div class="firstrow-com">All Comments</div>
+                {% for x in comments %}
+                <div class="secrow-com">
+                    <div class="coments-here">
+                        {{x.user.user_fullname}} at {{x.timestamp}} {{x.comment}}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </body>
+</html>
